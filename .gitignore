@@ -1,0 +1,3 @@
+*.mat
+*.mexa64
+src/seg/ini/conPropSim.mexa64
