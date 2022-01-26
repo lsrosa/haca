@@ -1,20 +1,30 @@
 clear variables;
-
-
-
+%%
+filename = 'data/demonstrations/squares.bag';
+[position, ~, ~] = read_demonstration(filename);
+%%
+distance_matrix = conDist(position, position);
+kernel_matrix = conKnl(distance_matrix, 'nei', 0.02);
+%%
+initial_segmentation = segIni(kernel_matrix, paraH(1));
+%%
+final_segmentation = segAlg('haca', [], kernel_matrix, paraH, initial_segmentation);    
+    
+%%
+% Original STUFF bellow
+%%
 % The value of tag could be set to any integer between 1 and 14
 % which correspods to the trial number of subject 86.
 % You can derive similar results as shown in http://humansensing.cs.cmu.edu/projects/aca_more_results.html
 tag = 5; 
 
-%% source
 wsSrc = mocSegSrc(tag);
 [para, paraH] = stFld(wsSrc, 'para', 'paraH');
 
 %% feature
 wsData = mocSegData(wsSrc);
-[X, segT] = stFld(wsData, 'X', 'segT');
-K = conKnl(conDist(X, X), 'nei', .02);
+[X, segT] = stFld(wsData, 'X', 'segT'); % getX and segT from wsData (useless function)
+K = conKnl(conDist(X, X), 'nei', .02); % construct kernel from distance matrix, conDist construct the distance matrix 
 para.nIni = 1;
 
 %% init

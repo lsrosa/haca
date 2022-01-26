@@ -19,6 +19,7 @@ function [seg, segs, objs, accs, iOpt] = segAlg(alg, X, K, para, seg0s, segT)
 % History
 %   create  -  Feng Zhou (zhfe99@gmail.com), 01-05-2009
 %   modify  -  Feng Zhou (zhfe99@gmail.com), 01-14-2010
+%   update  -  Leandro de Souza Rosa (l.desouzarosa@tudelft.nl), 27-01-2022
 
 nIni = length(seg0s);
 segs = cell(1, nIni);
@@ -52,7 +53,7 @@ for i = 1 : nIni
     end
 
     % accuracy
-    if ~isempty(segT)
+    if exist('segT', 'var') && ~isempty(segT)
         if strcmp(alg, 'haca')
             seg(end) = matchSeg(seg(end), segT(end));
             accs(i) = seg(end).acc;
@@ -68,7 +69,7 @@ end
 
 % choose the result with minimum objective value
 if strcmp(alg, 'aca') || strcmp(alg, 'haca')
-    [obj, iOpt] = min(objs);
+    [~, iOpt] = min(objs);
 else
     iOpt = 1;
 end
