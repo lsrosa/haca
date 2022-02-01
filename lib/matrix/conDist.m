@@ -35,9 +35,7 @@ D = real(sqrt(DSq));
 
 if strcmp(dst, 'b')
     th = 1e-5;
-    D > th
     D = real(D > th);
-    D
     DSq = D .^ 2;
    
 elseif ~strcmp(dst, 'e')

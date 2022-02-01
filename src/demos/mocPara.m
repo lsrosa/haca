@@ -95,7 +95,8 @@ if strcmp(dbe, 'moc') && strcmp(pno, '86')
     paraH = Hs{1};
 
     iT = atoi(trl);
-    paraH = paraH(iT * 2 - 1 : iT * 2);
+    paraH
+    paraH = paraH(iT * 2 - 1 : iT * 2)
     para = paraH2para(paraH);
 
 else

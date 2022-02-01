@@ -26,6 +26,7 @@ ms = ps(varargin, 'ms', 1 : m); visM = idx2vis(ms, m);
 
 hold on;
 [markers, colors] = genMarkers;
+
 for i = 1 : m
     c = find(G(:, i));
     

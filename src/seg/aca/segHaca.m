@@ -43,7 +43,6 @@ for iH = 1 : nH
     objLs = zeros(1, nIni);
     segLs = cell(1, nIni);
     for i = 1 : nIni
-        
         segLs{i} = segAca(K, para, seg0s{i});
         objLs(i) = segLs{i}.obj;
     end
