@@ -22,7 +22,7 @@ nIni = length(seg0s);
 segs = cell(1, nIni);
 [objs, accs] = zeross(1, nIni);
 for i = 1 : nIni
-    prom('m', 'new segmentation (%s): %d time\n', alg, i);
+    prom('m', 'new segmentation haca: %d time\n', i);
 
     % initialization
     seg0 = seg0s{i};
