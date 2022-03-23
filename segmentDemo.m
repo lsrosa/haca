@@ -6,7 +6,11 @@ filename = 'data/demonstrations/squares.bag';
 [position, velocity, effort] = read_demonstration(filename);
 
 %%
-distance_matrix = conDist(position, position);
+robot = importrobot('/home/leandro/repos/iiwa/iiwa_ros/src/iiwa_description/urdf/matlab_iiwa7.urdf');
+robot.DataFormat = 'column';
+ee_pose = compute_cartesian_ee_pose(robot, position);
+%%
+distance_matrix = conDist(ee_pose, ee_pose);
 kernel_matrix = conKnl(distance_matrix, 'nei', 0.02); % K in the paper
 
 %%

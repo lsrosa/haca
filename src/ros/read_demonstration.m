@@ -5,7 +5,7 @@ function [position, velocity, effort] = read_demonstration(filename)
 %   
 %   POS, VEL, EFF are AxB matrices, where A is the number of elements in
 %   the position, velocity and effor (one per joint usually), and B is the
-%   number of sample.
+%   number of samples.
 
 % History
 %   create  -  Leandro de Souza Rosa, 26-01-2022
